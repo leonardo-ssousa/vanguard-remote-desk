@@ -5,22 +5,23 @@ import { lightTheme } from "./theme/theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DevicesPage } from "./pages/devices";
 import { DevicesDetailsPage } from "./pages/deviceDetails";
-
-
+import { DevicesProvider } from "./Contexts/DevicesContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={lightTheme}>
-        <GlobalStyle />
+      <DevicesProvider>
+        <ThemeProvider theme={lightTheme}>
+          <GlobalStyle />
 
-        <Routes>
-          <Route path="/" element={<DefaultLayout />}>
-            <Route path="devices" element={<DevicesPage />} />
-            <Route path="devices/:uuid" element={<DevicesDetailsPage />} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
+          <Routes>
+            <Route path="/" element={<DefaultLayout />}>
+              <Route path="devices" element={<DevicesPage />} />
+              <Route path="devices/:uuid" element={<DevicesDetailsPage />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
+      </DevicesProvider>
     </BrowserRouter>
   );
 }

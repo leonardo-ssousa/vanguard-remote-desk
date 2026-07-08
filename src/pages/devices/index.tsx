@@ -1,24 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { DeviceCard } from "../../components/DeviceCard"
 import { DevicesPageWrapper } from "./styles"
-import type { Devices } from "../../@types";
-import { getDevices } from "../../API";
+import { useDevices } from "../../Contexts/DevicesContext";
 
 
 export const DevicesPage = () => {
-  const [devices, setDevices] = useState<Devices[]>([]);
-  useEffect(() => {
-    handleGetDevices()
-  }, []);
+  const {fetchDevices, devices} = useDevices()
 
-  const handleGetDevices = async () => {
-    try {
-      const devices = await getDevices()
-      setDevices(devices.data)
-    } catch (error) {
-      
-    }
-  }
+  useEffect(() => {
+    fetchDevices()
+  }, []);
 
 
   return (

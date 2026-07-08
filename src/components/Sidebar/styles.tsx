@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SidebarWrapper = styled.div`
   background-color: ${(props) => props.theme.background.primary};
-  width: 240px;
+  width: 288px;
   height: 100%;
   display: flex;
   flex-direction: column;

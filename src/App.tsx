@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<DefaultLayout />}>
               <Route path="devices" element={<DevicesPage />} />
-              <Route path="devices/:uuid" element={<DevicesDetailsPage />} />
+              <Route path="devices/:id" element={<DevicesDetailsPage />} />
             </Route>
           </Routes>
         </ThemeProvider>

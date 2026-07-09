@@ -1,12 +1,14 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import type { Devices } from "../@types";
-import { getDevices } from "../API";
+import type { Device } from "../@types";
+import { getBashTerminalUri, getConectionUri, getDevice, getDevices } from "../API";
 
 
 interface DevicesContextData {
-  devices: Devices[];
+  devices: Device[];
   loading: boolean;
   fetchDevices: () => Promise<void>;
+  handleShareScreen: (id: string) => Promise<void>;
+  handleBashTerminal: (id: string) => Promise<void>;
 }
 
 interface DevicesProviderProps {
@@ -15,7 +17,7 @@ interface DevicesProviderProps {
 
 const DeviceContext = createContext<DevicesContextData>({} as DevicesContextData)
 export const DevicesProvider = ({children}: DevicesProviderProps) => {
-  const [devices, setDevices] = useState<Devices[]>([]);
+  const [devices, setDevices] = useState<Device[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchDevices = async () => {
@@ -23,9 +25,19 @@ export const DevicesProvider = ({children}: DevicesProviderProps) => {
     setDevices(devices.data)
   }
 
+  const handleShareScreen = async (id: string) => {
+    window.location.href = await getConectionUri(id)
+  }
+
+  const handleBashTerminal = async (id: string) => {
+    window.location.href = await getBashTerminalUri(id)
+  }
+
 
   const contextValue = useMemo(() => {
     return {
+      handleBashTerminal,
+      handleShareScreen,
       fetchDevices,
       devices,
       loading,

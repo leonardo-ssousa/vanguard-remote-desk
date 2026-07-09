@@ -76,9 +76,8 @@ export const PageSection = styled.div`
 `;
 
 export const ActiveSessionCard = styled.div<{ $active: boolean }>`
-  border: 1px solid
-    ${({ $active, theme }) => ($active ? theme.bw[300] : "var(--border)")};
-  background: ${(props) => props.theme.background.primary};
+  border: ${({ $active, theme }) => ($active ? "1px solid" + theme.bw[300] : "1px dashed" + theme.bw[300])};
+  background: ${({ $active, theme }) => ($active ? theme.background.primary : "")};
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -86,6 +85,7 @@ export const ActiveSessionCard = styled.div<{ $active: boolean }>`
   gap: 20px;
   align-items: center;
   justify-content: space-between;
+  color: ${props => props.theme.font.tertiary};
 
   & > .right {
     display: flex;
@@ -116,6 +116,7 @@ export const ActiveSessionCard = styled.div<{ $active: boolean }>`
 export const ActiveConectionLeft = styled.div`
   display: flex;
   align-items: center;
+  gap: 8px;
 `;
 
 export const HistoryConectionLeft = styled.div`

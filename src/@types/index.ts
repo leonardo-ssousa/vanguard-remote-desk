@@ -1,4 +1,4 @@
-export interface Devices {
+export interface Device {
   id: string;
   name: string | undefined;
   os: string | null;

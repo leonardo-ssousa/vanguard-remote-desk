@@ -1,12 +1,12 @@
 import { LuApple, LuMonitor, LuScreenShare, LuSquareTerminal, LuTerminal } from "react-icons/lu"
 import { DeviceCardWrapper, DeviceBusinessTag, DeviceActionButton, DeviceStatusPulse } from "./styles"
-import type { Devices } from "../../@types"
+import type { Device } from "../../@types"
 import type { IconType } from "react-icons";
 import { AnimatePresence, easeInOut } from "motion/react";
 import { useNavigate } from "react-router-dom";
 
 interface DeviceCardProps {
-  device: Devices;
+  device: Device;
 }
 
 

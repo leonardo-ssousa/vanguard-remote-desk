@@ -23,6 +23,7 @@ export const lightTheme = {
   font: {
     primary: "#1E1E1E",
     secondary: "#5f738f",
+    tertiary: "#8ea3c2",
     white: "#ffffff",
   }, 
   auxiliar: {

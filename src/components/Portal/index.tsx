@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import { ModalCard, ModalPortalWrapper } from "./styles";
-import { AnimatePresence, easeInOut } from "motion/react";
+import { AnimatePresence, easeIn } from "motion/react";
 
 interface ModalPortalProps {
   children: React.ReactNode;
@@ -19,9 +19,9 @@ export const ModalPortal = ({
     <ModalPortalWrapper>
       <AnimatePresence>
         <ModalCard
-          initial={{ y: 50, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ ease: easeInOut }}
+          transition={{ ease: easeIn, duration: .1 }}
         >
           {children}
         </ModalCard>

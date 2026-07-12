@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from "react";
-import { InputWrapper } from "./styles";
+import { InputContainer, InputHeader, InputWrapper } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   title?: string;
@@ -10,11 +10,11 @@ export const Input = ({ title, ...rest }: InputProps) => {
     <InputWrapper>
     {
       title &&
-      <h4>{title}</h4>
+      <InputHeader>{title}</InputHeader>
     }
-    <div className="input-container">
+    <InputContainer>
       <input {...rest}/>
-    </div>
+    </InputContainer>
     </InputWrapper>
   )
 }

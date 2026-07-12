@@ -9,10 +9,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   StartIcon?: IconType;
   EndIcon?: IconType;
   buttonType?: "primary" | "secondary" | "tertiary";
+  onClick?: () => void;
+  disabled: boolean;
 }
 
 
-export const Button = ({children, StartIcon, EndIcon, buttonType, ...rest}: ButtonProps) => {
+export const Button = ({children, StartIcon, EndIcon, buttonType, onClick, disabled = false, ...rest}: ButtonProps) => {
   const theme = useTheme()
 
   const types = {
@@ -39,7 +41,7 @@ export const Button = ({children, StartIcon, EndIcon, buttonType, ...rest}: Butt
 
 
   return (
-    <ButtonWrapper  $typeColors={buttonType ? types[buttonType] : types.secondary}>
+    <ButtonWrapper $disabled={disabled}  $typeColors={buttonType ? types[buttonType] : types.secondary} onClick={onClick}>
       {StartIcon && <StartIcon />}
       <button {...rest}>{children}</button>
       {EndIcon && <EndIcon />}

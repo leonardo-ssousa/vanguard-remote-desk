@@ -1,4 +1,4 @@
-import { LuActivity, LuLogOut, LuMonitor, LuScreenShare, LuUsers } from "react-icons/lu";
+import { LuActivity, LuLogOut, LuMonitor, LuUsers } from "react-icons/lu";
 import { SidebarWrapper } from "./styles";
 import SidebarButton from "./sidebar-button";
 import { useNavigate } from "react-router-dom";

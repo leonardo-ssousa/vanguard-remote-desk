@@ -1,11 +1,24 @@
-import { PageHeader } from "../../components/Styles"
+import { LuSearch } from "react-icons/lu"
+import { PageDescription, PageHeader } from "../../components/Styles"
+import { Input } from "../../components/ui/Input"
 import { UsersPageWrapper } from "./styles"
 
 export const UsersPage = () => {
   return (
     <UsersPageWrapper>
-      <PageHeader>Usuarios</PageHeader>
-      Users Page
+      <header>
+        <section>
+          <PageHeader>Usuários</PageHeader>
+          <PageDescription>Listagem dos usuários cadastrados</PageDescription>
+        </section>
+        <section>
+          <Input StartIcon={LuSearch} placeholder="Pesquisar ..." />
+        </section>
+      </header>
+
+      <main>
+        Users Page
+      </main>
     </UsersPageWrapper>
   )
 }

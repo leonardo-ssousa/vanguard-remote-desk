@@ -2,6 +2,7 @@ import { LuSearch } from "react-icons/lu"
 import { PageDescription, PageHeader } from "../../components/Styles"
 import { Input } from "../../components/ui/Input"
 import { UsersPageWrapper } from "./styles"
+import { Table } from "../../components/Table"
 
 export const UsersPage = () => {
   return (
@@ -17,7 +18,7 @@ export const UsersPage = () => {
       </header>
 
       <main>
-        Users Page
+        <Table />
       </main>
     </UsersPageWrapper>
   )
